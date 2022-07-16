@@ -1,0 +1,38 @@
+{
+  "name": "heroes-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/api.js",
+  "scripts": {
+    "preinstall": "npm i -g pm2",
+    "postinstall": "cross-env NODE_ENV=prod npm run test",
+    "prod": "cross-env NODE_ENV=prod pm2-runtime api.js",
+    "start": "nodemon api.js",
+    "test": "npx nyc --reporter=html mocha --timeout 10000 __TEST__/*.test.js --exit"
+  },
+  "keywords": [],
+  "author": "JNCJcoder",
+  "license": "MIT",
+  "dependencies": {
+    "@hapi/boom": "^10.0.0",
+    "@hapi/hapi": "^20.2.2",
+    "@hapi/inert": "^6.0.5",
+    "@hapi/vision": "^6.1.0",
+    "bcrypt": "^5.0.1",
+    "cross-env": "^5.2.1",
+    "dotenv": "^6.2.0",
+    "hapi-auth-jwt2": "^10.2.0",
+    "hapi-swagger": "^14.5.5",
+    "joi": "^17.6.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.3.11",
+    "pg": "^7.4.3",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^4.38.0",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "mocha": "^5.2.0",
+    "nyc": "^13.1.0"
+  }
+}
